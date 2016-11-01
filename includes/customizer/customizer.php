@@ -8,11 +8,8 @@
  * @link        https://designtowebsite.com
  * @license     GNU General Public License 2.0+
  */
-namespace NickDavis\Starter;
 
-use WP_Customize_Color_Control;
-
-add_action( 'customize_register', __NAMESPACE__ . '\register_with_customizer' );
+add_action( 'customize_register', 'nd_register_with_customizer' );
 /**
  * Register settings and controls with the Customizer.
  *
@@ -20,15 +17,15 @@ add_action( 'customize_register', __NAMESPACE__ . '\register_with_customizer' );
  *
  * @param WP_Customize_Manager $wp_customize Customizer object.
  */
-function register_with_customizer() {
-	$prefix = get_settings_prefix();
+function nd_register_with_customizer() {
+	$prefix = nd_get_settings_prefix();
 
 	global $wp_customize;
 
 	$wp_customize->add_setting(
 		$prefix . '_link_color',
 		array(
-			'default'           => get_default_link_color(),
+			'default'           => nd_get_default_link_color(),
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
@@ -49,7 +46,7 @@ function register_with_customizer() {
 	$wp_customize->add_setting(
 		$prefix . '_accent_color',
 		array(
-			'default'           => get_default_accent_color(),
+			'default'           => nd_get_default_accent_color(),
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);

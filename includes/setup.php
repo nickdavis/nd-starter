@@ -8,9 +8,8 @@
  * @link        https://designtowebsite.com
  * @license     GNU General Public License 2.0+
  */
-namespace NickDavis\Starter;
 
-add_action( 'genesis_setup', __NAMESPACE__ . '\setup_child_theme' );
+add_action( 'genesis_setup', 'nd_setup_child_theme' );
 /**
  * Setup child theme.
  *
@@ -18,11 +17,11 @@ add_action( 'genesis_setup', __NAMESPACE__ . '\setup_child_theme' );
  *
  * @return void
  */
-function setup_child_theme() {
+function nd_setup_child_theme() {
 	load_child_theme_textdomain( 'nd-starter', apply_filters( 'child_theme_textdomain', CHILD_THEME_DIR . '/languages', 'nd-starter' ) );
 
-	adds_theme_supports();
-	adds_new_image_sizes();
+	nd_adds_theme_supports();
+	nd_adds_new_image_sizes();
 }
 
 /**
@@ -32,7 +31,7 @@ function setup_child_theme() {
  *
  * @return void
  */
-function adds_theme_supports() {
+function nd_adds_theme_supports() {
 	$config = array(
 		'html5'                           => array(
 			'caption',
@@ -78,7 +77,7 @@ function adds_theme_supports() {
  *
  * @return void
  */
-function adds_new_image_sizes() {
+function nd_adds_new_image_sizes() {
 	$config = array(
 		'featured-image' => array(
 			'width'  => 720,
@@ -94,7 +93,7 @@ function adds_new_image_sizes() {
 	}
 }
 
-add_filter( 'genesis_theme_settings_defaults', __NAMESPACE__ . '\set_theme_settings_defaults' );
+add_filter( 'genesis_theme_settings_defaults', 'nd_set_theme_settings_defaults' );
 /**
  * Set theme settings defaults.
  *
@@ -104,15 +103,15 @@ add_filter( 'genesis_theme_settings_defaults', __NAMESPACE__ . '\set_theme_setti
  *
  * @return array
  */
-function set_theme_settings_defaults( array $defaults ) {
-	$config = get_theme_settings_defaults();
+function nd_set_theme_settings_defaults( array $defaults ) {
+	$config = nd_get_theme_settings_defaults();
 
 	$defaults = wp_parse_args( $config, $defaults );
 
 	return $defaults;
 }
 
-add_action( 'after_switch_theme', __NAMESPACE__ . '\update_theme_settings_defaults' );
+add_action( 'after_switch_theme', 'nd_update_theme_settings_defaults' );
 /**
  * Sets the theme setting defaults.
  *
@@ -120,8 +119,8 @@ add_action( 'after_switch_theme', __NAMESPACE__ . '\update_theme_settings_defaul
  *
  * @return void
  */
-function update_theme_settings_defaults() {
-	$config = get_theme_settings_defaults();
+function nd_update_theme_settings_defaults() {
+	$config = nd_get_theme_settings_defaults();
 
 	if ( function_exists( 'genesis_update_settings' ) ) {
 		genesis_update_settings( $config );
@@ -137,7 +136,7 @@ function update_theme_settings_defaults() {
  *
  * @return array
  */
-function get_theme_settings_defaults() {
+function nd_get_theme_settings_defaults() {
 	return array(
 		'blog_cat_num'              => 12,
 		'content_archive'           => 'full',

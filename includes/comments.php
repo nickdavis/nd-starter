@@ -8,9 +8,8 @@
  * @link        https://designtowebsite.com
  * @license     GNU General Public License 2.0+
  */
-namespace NickDavis\Starter;
 
-add_filter( 'genesis_comment_list_args', __NAMESPACE__ . '\setup_comments_gravatar' );
+add_filter( 'genesis_comment_list_args', 'nd_setup_comments_gravatar' );
 /**
  * Modify size of the Gravatar in the entry comments.
  *
@@ -20,7 +19,7 @@ add_filter( 'genesis_comment_list_args', __NAMESPACE__ . '\setup_comments_gravat
  *
  * @return mixed
  */
-function setup_comments_gravatar( $args ) {
+function nd_setup_comments_gravatar( $args ) {
 	$args['avatar_size'] = 60;
 
 	return $args;

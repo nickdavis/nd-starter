@@ -8,4 +8,3 @@
  * @link        https://designtowebsite.com
  * @license     GNU General Public License 2.0+
  */
-namespace NickDavis\Starter;
