@@ -8,11 +8,11 @@
 
 	'use strict';
 
-	var genesisSample              = {},
+	var ndStarter              = {},
 		mainMenuButtonClass = 'menu-toggle',
 		subMenuButtonClass  = 'sub-menu-toggle';
 
-	genesisSample.init = function() {
+	ndStarter.init = function() {
 		var toggleButtons = {
 			menu : $( '<button />', {
 				'class' : mainMenuButtonClass,
@@ -20,7 +20,7 @@
 				'aria-pressed' : false,
 				'role' : 'button'
 				} )
-				.append( genesisSample.params.mainMenu ),
+				.append( ndStarter.params.mainMenu ),
 			submenu : $( '<button />', {
 				'class' : subMenuButtonClass,
 				'aria-expanded' : false,
@@ -29,7 +29,7 @@
 				} )
 				.append( $( '<span />', {
 					'class' : 'screen-reader-text',
-					text : genesisSample.params.subMenu
+					text : ndStarter.params.subMenu
 				} ) )
 		};
 		if ($( '.nav-primary' ).length > 0 ) {
@@ -41,9 +41,9 @@
 		$( '.' + mainMenuButtonClass ).each( _addClassID );
 		$( '.' + mainMenuButtonClass ).addClass('dashicons-before dashicons-menu');
 		$( '.' + subMenuButtonClass ).addClass('dashicons-before dashicons-arrow-down');
-		$( window ).on( 'resize.genesisSample', _doResize ).triggerHandler( 'resize.genesisSample' );
-		$( '.' + mainMenuButtonClass ).on( 'click.genesisSample-mainbutton', _mainmenuToggle );
-		$( '.' + subMenuButtonClass ).on( 'click.genesisSample-subbutton', _submenuToggle );
+		$( window ).on( 'resize.ndStarter', _doResize ).triggerHandler( 'resize.ndStarter' );
+		$( '.' + mainMenuButtonClass ).on( 'click.ndStarter-mainbutton', _mainmenuToggle );
+		$( '.' + subMenuButtonClass ).on( 'click.ndStarter-subbutton', _submenuToggle );
 	};
 
 	// add nav class and ID to related button
@@ -187,10 +187,10 @@
 		// run test on resize of the window
 		$( window ).resize( _combineMenus );
 		
-		genesisSample.params = typeof genesisSampleL10n === 'undefined' ? '' : genesisSampleL10n;
+		ndStarter.params = typeof ndStarterL10n === 'undefined' ? '' : ndStarterL10n;
 
-		if ( typeof genesisSample.params !== 'undefined' ) {
-			genesisSample.init();
+		if ( typeof ndStarter.params !== 'undefined' ) {
+			ndStarter.init();
 		}
 
 	});
