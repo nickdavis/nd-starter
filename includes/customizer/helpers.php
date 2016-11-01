@@ -8,7 +8,7 @@
  * @link        https://designtowebsite.com
  * @license     GNU General Public License 2.0+
  */
-
+namespace NickDavis\Starter;
 
 /**
  * Get the settings prefix.
@@ -17,8 +17,8 @@
  *
  * @return string
  */
-function nd_get_settings_prefix() {
-	return 'nd-starter';
+function get_settings_prefix() {
+	return 'developers';
 }
 
 /**
@@ -30,7 +30,7 @@ function nd_get_settings_prefix() {
  *
  * @return string Hex color code for link color.
  */
-function nd_get_default_link_color() {
+function get_default_link_color() {
 	return '#c3251d';
 }
 
@@ -43,7 +43,7 @@ function nd_get_default_link_color() {
  *
  * @return string Hex color code for accent color.
  */
-function nd_get_default_accent_color() {
+function get_default_accent_color() {
 	return '#c3251d';
 }
 
@@ -56,7 +56,7 @@ function nd_get_default_accent_color() {
  *
  * @return string
  */
-function nd_calculate_color_contrast( $color ) {
+function calculate_color_contrast( $color ) {
 
 	$hexcolor = str_replace( '#', '', $color );
 
@@ -67,6 +67,7 @@ function nd_calculate_color_contrast( $color ) {
 	$luminosity = ( ( $red * 0.2126 ) + ( $green * 0.7152 ) + ( $blue * 0.0722 ) );
 
 	return ( $luminosity > 128 ) ? '#333333' : '#ffffff';
+
 }
 
 /**
@@ -79,7 +80,7 @@ function nd_calculate_color_contrast( $color ) {
  *
  * @return string
  */
-function nd_calculate_color_brightness( $color, $change ) {
+function calculate_color_brightness( $color, $change ) {
 
 	$hexcolor = str_replace( '#', '', $color );
 
@@ -92,4 +93,5 @@ function nd_calculate_color_brightness( $color, $change ) {
 	$blue  = max( 0, min( 255, $blue + $change ) );
 
 	return '#'.dechex( $red ).dechex( $green ).dechex( $blue );
+
 }

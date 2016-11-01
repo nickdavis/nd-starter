@@ -8,8 +8,9 @@
  * @link        https://designtowebsite.com
  * @license     GNU General Public License 2.0+
  */
+namespace NickDavis\Starter;
 
-add_filter( 'wp_nav_menu_args', 'nd_secondary_menu_args' );
+add_filter( 'wp_nav_menu_args', __NAMESPACE__ . '\secondary_menu_args' );
 /**
  * Reduce the secondary navigation menu to one level depth
  *
@@ -19,7 +20,7 @@ add_filter( 'wp_nav_menu_args', 'nd_secondary_menu_args' );
  *
  * @return mixed
  */
-function nd_secondary_menu_args( $args ) {
+function secondary_menu_args( $args ) {
 	if ( 'secondary' != $args['theme_location'] ) {
 		return $args;
 	}

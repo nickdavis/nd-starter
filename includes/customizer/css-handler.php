@@ -8,25 +8,26 @@
  * @link        https://designtowebsite.com
  * @license     GNU General Public License 2.0+
  */
+namespace NickDavis\Starter;
 
-add_action( 'wp_enqueue_scripts', 'nd_build_inline_css_from_customizer_settings' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\build_inline_css_from_customizer_settings' );
 /**
  * Checks the settings for the link color, and accent color.
  * If any of these value are set the appropriate CSS is output.
  *
  * @since 1.0.0
  */
-function nd_build_inline_css_from_customizer_settings() {
-	$prefix = nd_get_settings_prefix();
+function build_inline_css_from_customizer_settings() {
+	$prefix = get_settings_prefix();
 
 	$handle  = defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ? sanitize_title_with_dashes( CHILD_THEME_NAME ) : 'child-theme';
 
-	$color_link = get_theme_mod( $prefix . '_link_color', nd_get_default_link_color() );
-	$color_accent = get_theme_mod( $prefix . '_accent_color', nd_get_default_accent_color() );
+	$color_link = get_theme_mod( $prefix . '_link_color', get_default_link_color() );
+	$color_accent = get_theme_mod( $prefix . '_accent_color', get_default_accent_color() );
 
 	$css = '';
 
-	$css .= ( nd_get_default_link_color() !== $color_link ) ? sprintf( '
+	$css .= ( get_default_link_color() !== $color_link ) ? sprintf( '
 
 		a,
 		.entry-title a:focus,
@@ -42,7 +43,7 @@ function nd_build_inline_css_from_customizer_settings() {
 		}
 		', $color_link ) : '';
 
-	$css .= ( nd_get_default_accent_color() !== $color_accent ) ? sprintf( '
+	$css .= ( get_default_accent_color() !== $color_accent ) ? sprintf( '
 
 		button:focus,
 		button:hover,
@@ -61,7 +62,7 @@ function nd_build_inline_css_from_customizer_settings() {
 			background-color: %s;
 			color: %s;
 		}
-		', $color_accent, nd_calculate_color_contrast( $color_accent ) ) : '';
+		', $color_accent, calculate_color_contrast( $color_accent ) ) : '';
 
 	if ( $css ) {
 		wp_add_inline_style( $handle, $css );

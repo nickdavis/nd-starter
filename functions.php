@@ -8,6 +8,7 @@
  * @link        https://designtowebsite.com
  * @license     GNU General Public License 2.0+
  */
+namespace NickDavis\Starter;
 
 /**
  * Initialise the theme's constants.
@@ -16,7 +17,7 @@
  *
  * @return void
  */
-function nd_init_constants() {
+function init_constants() {
 	$child_theme = wp_get_theme();
 
 	define( 'CHILD_THEME_DIR', get_stylesheet_directory() );
@@ -25,7 +26,7 @@ function nd_init_constants() {
 	define( 'CHILD_THEME_VERSION', $child_theme->get( 'Version' ) );
 }
 
-nd_init_constants();
+init_constants();
 
 // Setup theme
 include_once( CHILD_THEME_DIR . '/includes/setup.php' );
