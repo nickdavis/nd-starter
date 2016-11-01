@@ -30,6 +30,9 @@ nd_init_constants();
 // Setup theme
 include_once( CHILD_THEME_DIR . '/includes/setup.php' );
 
+// Start Genesis
+include_once( get_template_directory() . '/lib/init.php' );
+
 // Load other functions
 include( CHILD_THEME_DIR . '/includes/customizer/css-handler.php' );
 include( CHILD_THEME_DIR . '/includes/customizer/helpers.php' );
