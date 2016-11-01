@@ -10,9 +10,6 @@
  */
 namespace NickDavis\Starter;
 
-// Setup Genesis
-include_once( get_template_directory() . '/lib/init.php' );
-
 /**
  * Initialise the theme's constants.
  *
