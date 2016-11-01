@@ -9,7 +9,7 @@
  * @license     GNU General Public License 2.0+
  */
 
-//add_filter( 'wp_nav_menu_args', 'nd_secondary_menu_args' );
+add_filter( 'wp_nav_menu_args', 'nd_secondary_menu_args' );
 /**
  * Reduce the secondary navigation menu to one level depth
  *
@@ -33,5 +33,5 @@ function nd_secondary_menu_args( $args ) {
  * Reposition the secondary navigation menu
  *
  */
-//remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-//add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
+remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
