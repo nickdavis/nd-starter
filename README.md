@@ -6,6 +6,8 @@ This theme is designed to be used as a starter WordPress theme for all https://d
 
 Apart from Genesis, ND Starter is designed to work with the ND Core (core functionality) plugin and, where available, any related 'Project' Core (core functionality) plugin. Without these plugins installed and activated, theme functionality may be limited.
 
+Finally, this theme will likely change over time. As such, any theme built from it will not necessarily be backwards compatible with future versions of this starter theme (nor will I try to keep any theme built on it to be backwards compatible).
+
 ## Installation Instructions
 
 1. Upload the ND Starter theme folder via FTP to your wp-content/themes/ directory. (The Genesis parent theme needs to be in the wp-content/themes/ directory as well).
