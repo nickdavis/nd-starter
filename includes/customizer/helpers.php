@@ -18,7 +18,7 @@ namespace NickDavis\Starter;
  * @return string
  */
 function get_settings_prefix() {
-	return 'developers';
+	return 'nd-starter';
 }
 
 /**
