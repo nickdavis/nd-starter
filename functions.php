@@ -41,6 +41,7 @@ include( CHILD_THEME_DIR . '/includes/archive.php' );
 include( CHILD_THEME_DIR . '/includes/assets.php' );
 include( CHILD_THEME_DIR . '/includes/comments.php' );
 include( CHILD_THEME_DIR . '/includes/footer.php' );
+include( CHILD_THEME_DIR . '/includes/header.php' );
 include( CHILD_THEME_DIR . '/includes/markup.php' );
 include( CHILD_THEME_DIR . '/includes/menu.php' );
 include( CHILD_THEME_DIR . '/includes/post.php' );
