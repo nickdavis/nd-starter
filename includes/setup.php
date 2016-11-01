@@ -19,7 +19,7 @@ add_action( 'genesis_setup', __NAMESPACE__ . '\setup_child_theme' );
  * @return void
  */
 function setup_child_theme() {
-	load_child_theme_textdomain( CHILD_TEXT_DOMAIN, apply_filters( 'child_theme_textdomain', CHILD_THEME_DIR . '/languages', CHILD_TEXT_DOMAIN ) );
+	load_child_theme_textdomain( 'nd-starter', apply_filters( 'child_theme_textdomain', CHILD_THEME_DIR . '/languages', 'nd-starter' ) );
 
 	adds_theme_supports();
 	adds_new_image_sizes();
@@ -61,8 +61,8 @@ function adds_theme_supports() {
 		'genesis-after-entry-widget-area' => null,
 		'genesis-footer-widgets'          => 3,
 		'genesis-menus'                   => array(
-			'primary'   => __( 'Header Menu', CHILD_TEXT_DOMAIN ),
-			'secondary' => __( 'Footer Menu', CHILD_TEXT_DOMAIN )
+			'primary'   => __( 'Header Menu', 'nd-starter' ),
+			'secondary' => __( 'Footer Menu', 'nd-starter' )
 		),
 	);
 
