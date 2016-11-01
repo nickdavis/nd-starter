@@ -41,7 +41,7 @@ function register_with_customizer() {
 				'description' => __( 'Change the default color for linked titles, menu links, post info links and more.', 'nd-starter' ),
 				'label'       => __( 'Link Color', 'nd-starter' ),
 				'section'     => 'colors',
-				'settings'    => $prefix . '_sample_link_color',
+				'settings'    => $prefix . '_link_color',
 			)
 		)
 	);
